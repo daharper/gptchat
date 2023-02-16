@@ -1,9 +1,12 @@
-import { Settings }  from "./scripts/settings.js";
-
 const consoleInput = document.querySelector(".console-input");
 const historyContainer = document.querySelector(".console-history");
 
-let settings = new Settings();
+let model = "text-davinci-003";
+let temperature = 1;
+let maxTokens = 600;
+
+let url = "https://api.openai.com/v1/completions";
+let bearer = "your api key";
 
 function addResult(inputAsString, output) {
     const inputLogElement = document.createElement("div");
@@ -38,12 +41,12 @@ consoleInput.addEventListener("keyup", e => {
 function execute(question) {
     let req = new XMLHttpRequest();
 
-    req.open("post", settings.url, false);
+    req.open("post", url, false);
 
     req.setRequestHeader("Content-type", "application/json");
-    req.setRequestHeader("Authorization", "Bearer " + settings.bearer);
+    req.setRequestHeader("Authorization", "Bearer " + bearer);
 
-    let body = `{"model": "${settings.model}", "prompt": "${question}", "temperature": ${settings.temperature}, "max_tokens": ${settings.maxTokens}}`;
+    let body = `{"model": "${model}", "prompt": "${question}", "temperature": ${temperature}, "max_tokens": ${maxTokens}}`;
     req.send(body);
 
     if (req.status === 200) {
@@ -51,5 +54,5 @@ function execute(question) {
         return data.choices[0].text.trim();
     }
 
-    return "error: " + req.statusText;
+    return "error: " + req.responseText.trim();
 }
