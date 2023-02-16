@@ -4,7 +4,7 @@ class Settings {
         this.temperature = temperature;
         this.maxTokens = maxTokens;
         this.url = "https://api.openai.com/v1/completions";
-        this.bearer = "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";
+        this.bearer = "your chat token"
     }
 }
 
