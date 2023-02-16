@@ -8,6 +8,7 @@ Synchronous question and answer from OpenAI GPT
 To run the application:
 
 * download the source code
+* edit main.js and set bearer to your open api key
 * open a terminal and change into the source folder
 * run a simple web server
 
