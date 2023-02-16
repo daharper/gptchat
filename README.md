@@ -8,7 +8,7 @@ Synchronous question and answer from OpenAI GPT
 To run the application:
 
 * download the source code
-* edit main.js and set bearer to your open api key
+* edit main.js and set bearer to your openai api key
 * double-click on index.html in Windows Explorer to view it in a browser
 
 You can enter questions at the bottom of the page.
